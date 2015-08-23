@@ -1,0 +1,94 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400");
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary {
+  border: 0;
+  display: block;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+audio,canvas,video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]),[hidden] { display: none; }
+html {
+  background: #dfad51;
+  font-family: 'Lato',sans-serif;
+  font-size: 14pt;
+  font-weight: 300;
+  line-height: 1.5em;
+  min-height: 100%;
+}
+body {
+  background: #fff;
+  margin: auto;
+  max-width: 800px;
+  min-height: 100%;
+  width: 100%;
+}
+form#new-ragot { padding: .7em 1.2em; zoom: 1; }
+form#new-ragot:before,form#new-ragot:after { content: ""; display: table; }
+form#new-ragot:after { clear: both; }
+form#new-ragot [name="ragot"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 0;
+  box-sizing: border-box;
+  display: block;
+  font-family: inherit;
+  font-size: 1.8em;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 10px;
+  resize: none;
+  width: 100%;
+}
+form#new-ragot [name="ragot"].input-error { -webkit-box-shadow: 1px 1px 12px #955; border: 1px solid #b82a2a; box-shadow: 1px 1px 12px #955; }
+form#new-ragot [name="ragot"]:focus { outline: none; }
+form#new-ragot [type="submit"] {
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+  background: #dfad51;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.3em;
+  font-weight: inherit;
+  padding: .3em;
+  text-align: center;
+  width: 100%;
+}
+form#new-ragot [type="submit"].onrequest { background: #ddd; }
+ul#ragots { list-style: none; padding: 0; }
+ul#ragots li.ragot { border-top: 1px rgba(0,0,0,0.1) solid; }
+ul#ragots li.ragot .message { padding: 20px; }
+ul#ragots li.ragot .date {
+  color: #555;
+  float: right;
+  font-size: 8pt;
+  height: 10pt;
+  position: relative;
+  right: 10px;
+}
+.center { padding-top: 10px; text-align: center; }
+.like {
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  text-align: right;
+}

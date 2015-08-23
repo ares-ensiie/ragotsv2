@@ -1,0 +1,14 @@
+= form_tag ragots_path, method: :post, :id => "new-ragot" do
+  = text_area_tag :ragot, nil, :placeholder => "Il paraît que ..."
+  = submit_tag "Ragoter"
+
+%ul#ragots
+  - @ragots.each do |ragot|
+    %li.ragot
+      .date
+        = ragot.created_at.in_time_zone("Europe/Paris").strftime("%d/%m/%Y %H:%M:%S")
+      .message
+        = ragot.message
+      .like
+        #{ragot.likes.count} likes
+        = link_to "Liker", like_path(ragot)

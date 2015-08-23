@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  username: intranet
+  password: intranet
+  host: localhost
+  pool: 10
+
+development:
+  <<: *default
+  database: ragots_development
+test:
+  <<: *default
+  database: ragots_test
+
+production:
+  <<: *default
+  database: ragots_production
+  username: ragots
+  password: <%= ENV['RAGOTS_DATABASE_PASSWORD'] %>
