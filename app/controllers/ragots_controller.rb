@@ -32,7 +32,7 @@ class RagotsController < ApplicationController
   protected
 
   def set_oauth
-    @oauth = OAuth2::Client.new(OAUTH_CONFIG['APP_ID'], OAUTH_CONFIG['APP_SECRET'], :site => OAUTH_CONFIG['OAUTH_PROVIDER'])
+    @oauth = OAuth2::Client.new(OAUTH_CONFIG['APP_ID'], OAUTH_CONFIG['APP_SECRET'], :site => {url: OAUTH_CONFIG['OAUTH_PROVIDER'], ssl:{:verify=>OpenSSL::SSL::VERIFY_NONE}})
   end
 
   def authenticate_oauth2
