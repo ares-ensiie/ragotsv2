@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/' => 'ragots#new'
   get '/' => 'ragots#home', as: 'ragots'
   get '/:id/like' => 'ragots#like', as: 'like'
+  get '/:id/unlike' => 'ragots#unlike', as: 'unlike'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

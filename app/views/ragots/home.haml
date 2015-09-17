@@ -11,4 +11,7 @@
         = ragot.message
       .like
         #{ragot.likes.count} likes
-        = link_to "Liker", like_path(ragot)
+        - if had_already_liked(ragot)
+          = link_to "Unlike", unlike_path(ragot)
+        - else
+          = link_to "Liker", like_path(ragot)
