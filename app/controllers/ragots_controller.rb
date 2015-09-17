@@ -24,9 +24,13 @@ class RagotsController < ApplicationController
 
   def callback
     set_oauth
-    access_token = @oauth.auth_code.get_token(params[:code], :redirect_uri => callback_url)
-    session[:access_token] = access_token.token
-    redirect_to root_path
+    if params[:error] != nil 
+        redirect_to "https://ares-ensiie.eu/"
+    else
+        access_token = @oauth.auth_code.get_token(params[:code], :redirect_uri => callback_url)
+        session[:access_token] = access_token.token
+        redirect_to root_path
+    end
   end
 
   protected
