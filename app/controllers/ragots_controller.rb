@@ -25,14 +25,14 @@ class RagotsController < ApplicationController
 
   def unlike
     ragot = Ragot.find(params[:id])
-    if Like.find_by({ragot: ragot, uid: @user["uid"]}).count
-      Like.destroy({ragot: ragot, uid: @user["uid"]})
+    if had_already_liked(ragot)
+      Like.delete_all({ragot: ragot, uid: @user["uid"]})
     end
     redirect_to root_path
   end
 
-  def had_already_liked
-    return Like.find_by({uid: @user["uid"]}).count > 0
+  def had_already_liked(ragot)
+    return Like.exists?({uid: @user["uid"], ragot: ragot})
   end
 
   def callback
