@@ -6,12 +6,20 @@
   - @ragots.each do |ragot|
     %li.ragot
       .date
-        = ragot.created_at.in_time_zone("Europe/Paris").strftime("%d/%m/%Y %H:%M:%S")
+        = I18n.l ragot.created_at.in_time_zone("Europe/Paris")
       .message
         = ragot.message
       .like
-        #{ragot.likes.count} likes
-        - if had_already_liked(ragot)
-          = link_to "Unlike", unlike_path(ragot)
-        - else
-          = link_to "Liker", like_path(ragot)
+        -if ragot.likes.count == 0
+          Personne n'a aimé ça
+        -elsif ragot.likes.count == 1
+          #{ragot.likes.count} personne a aimé ça
+        -else
+          #{ragot.likes.count} personnes ont aimé ça
+        .tolike
+          - if had_already_liked(ragot)
+            = link_to unlike_path(ragot) do
+              %i.fa.fa-heart.liked
+          - else
+            = link_to like_path(ragot) do
+              %i.fa.fa-heart.not-liked
