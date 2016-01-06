@@ -1,6 +1,6 @@
 = form_tag ragots_path, method: :post, :id => "new-ragot" do
-  = text_area_tag :ragot, nil, :placeholder => "Je vote FVCTIICE car..."
-  = submit_tag "Voter FVCTIICE"
+  = text_area_tag :ragot, nil, :placeholder => "Il paraît que ..."
+  = submit_tag "Ragoter"
 
 %ul#ragots
   - @ragots.each do |ragot|
@@ -11,11 +11,11 @@
         = ragot.message
       .like
         -if ragot.likes.count == 0
-          Ce n'est pas digne du Dictateur
+          Personne n'a aimé ça
         -elsif ragot.likes.count == 1
-          #{ragot.likes.count} personne adore notre Dictateur.
+          #{ragot.likes.count} personne a aimé ça
         -else
-          #{ragot.likes.count} personnes adorent notre Dictateur.
+          #{ragot.likes.count} personnes ont aimé ça
         .tolike
           - if had_already_liked(ragot)
             = link_to unlike_path(ragot) do
